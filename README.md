@@ -1,6 +1,6 @@
-# M365 Copilot Leaderboard
+# Frontier Agents Leaderboard
 
-A playful GitHub Pages dashboard for tracking daily reaction wins across a fixed roster.
+A cybernetic GitHub Pages dashboard for tracking daily reaction wins across a fixed roster.
 
 ## What it does
 
@@ -11,6 +11,17 @@ A playful GitHub Pages dashboard for tracking daily reaction wins across a fixed
   - at least one reaction
 - Stores scores and import history in browser local storage.
 - Lets you undo the last import, reset everything, or export the current leaderboard.
+- Keeps the published dashboard presentation-only.
+
+## Public board
+
+- The public page shows the leaderboard and daily board rules only.
+- The displayed rule is `+5` points per valid daily completion.
+- The displayed update time is `10:00 AM` every day.
+
+## Local admin use
+
+Use the local-only `admin.local.html` file for uploads and score updates. It is not intended to be part of the published dashboard.
 
 ## Expected upload shape
 

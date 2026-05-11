@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>M365 Copilot Reactions Leaderboard</title>
+    <title>Frontier Agents Leaderboard</title>
     <meta
       name="description"
-      content="A playful daily leaderboard for M365 Copilot reactions and message wins."
+      content="A cybernetic leaderboard for Frontier Agents reaction wins."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,60 +17,48 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div id="sceneCanvas" class="scene-canvas" aria-hidden="true"></div>
+    <div id="parallaxScene" class="parallax-scene" aria-hidden="true">
+      <div class="orbital orbital-one" data-depth="0.08"></div>
+      <div class="orbital orbital-two" data-depth="0.16"></div>
+      <div class="grid-halo" data-depth="0.22"></div>
+    </div>
     <div class="page-shell">
       <header class="hero-card">
         <div>
-          <p class="eyebrow">Daily reaction race</p>
-          <h1>M365 Copilot Leaderboard</h1>
+          <h1>Frontier Agents Leaderboard</h1>
           <p class="hero-copy">
-            Upload a daily reaction export, reward every reacted message with +5 points,
-            and keep the energy visible.
+            A live command deck for daily reaction wins, standout energy, and team momentum.
           </p>
+          <div class="hero-callouts">
+            <span>Neon pulse ranking</span>
+            <span>Daily momentum tracking</span>
+            <span>Frontier signal board</span>
+          </div>
         </div>
         <div class="hero-badges" id="heroBadges"></div>
       </header>
 
       <main class="dashboard-grid">
-        <section class="panel upload-panel">
+        <section class="panel signal-panel">
           <div class="panel-header">
             <div>
-              <p class="eyebrow">User-driven upload</p>
-              <h2>Daily scoring</h2>
+              <p class="eyebrow">Daily rules</p>
+              <h2>Board protocol</h2>
             </div>
-            <button id="undoImportButton" class="ghost-button" type="button">Undo last import</button>
           </div>
-
-          <label class="input-label" for="importFile">Upload CSV or JSON</label>
-          <input id="importFile" class="file-input" type="file" accept=".csv,.json,application/json,text/csv" />
-
-          <label class="input-label" for="pasteArea">Or paste rows directly</label>
-          <textarea
-            id="pasteArea"
-            class="paste-area"
-            rows="8"
-            placeholder='Example CSV: name,reactions&#10;Akash Dwivedi,3&#10;Sapna Giddegowda,1'
-          ></textarea>
-
-          <div class="button-row">
-            <button id="processButton" class="primary-button" type="button">Process daily upload</button>
-            <button id="exportButton" class="secondary-button" type="button">Export leaderboard</button>
-            <button id="resetButton" class="ghost-button" type="button">Reset scores</button>
+          <div class="signal-grid">
+            <article class="signal-card">
+              <span class="signal-label">Daily rule</span>
+              <strong>+5 points</strong>
+              <p>Each valid daily completion adds five points to the matching person.</p>
+            </article>
+            <article class="signal-card">
+              <span class="signal-label">Daily refresh</span>
+              <strong>10:00 AM</strong>
+              <p>The leaderboard is updated every day at 10 AM.</p>
+            </article>
           </div>
-
-          <div class="hint-card">
-            <h3>How scoring works</h3>
-            <p>
-              Each uploaded row that contains a known person and at least one reaction
-              adds <strong>+5 points</strong> to that person.
-            </p>
-            <p>
-              Supported name columns: <code>name</code>, <code>author</code>, <code>user</code>,
-              <code>sender</code>. Supported reaction columns: <code>reactions</code>,
-              <code>reactionCount</code>, <code>likes</code>, <code>emojiCount</code>.
-            </p>
-          </div>
-
-          <div id="importSummary" class="summary-card" aria-live="polite"></div>
         </section>
 
         <section class="panel leaderboard-panel">
@@ -103,11 +91,12 @@
             <h3 class="person-name"></h3>
             <span class="score-pill"></span>
           </div>
-          <p class="profile-title"></p>
         </div>
       </article>
     </template>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/parallax-js@3.1.0/dist/parallax.min.js"></script>
     <script src="./app.js"></script>
   </body>
   </html>

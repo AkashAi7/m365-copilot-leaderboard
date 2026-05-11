@@ -1,4 +1,4 @@
-const STORAGE_KEY = "m365-copilot-leaderboard-v1";
+const STORAGE_KEY = "frontier-agents-leaderboard-v3";
 
 const roster = [
   { name: "Amrita Srivastava", profile: "Momentum Maven", colors: ["#ff7a18", "#ef476f"] },
@@ -33,10 +33,23 @@ const resetButton = document.getElementById("resetButton");
 const undoImportButton = document.getElementById("undoImportButton");
 const leaderboardItemTemplate = document.getElementById("leaderboardItemTemplate");
 
-processButton.addEventListener("click", processImport);
-exportButton.addEventListener("click", exportLeaderboard);
-resetButton.addEventListener("click", resetScores);
-undoImportButton.addEventListener("click", undoLastImport);
+if (processButton) {
+  processButton.addEventListener("click", processImport);
+}
+
+if (exportButton) {
+  exportButton.addEventListener("click", exportLeaderboard);
+}
+
+if (resetButton) {
+  resetButton.addEventListener("click", resetScores);
+}
+
+if (undoImportButton) {
+  undoImportButton.addEventListener("click", undoLastImport);
+}
+
+initVisualEffects();
 
 render();
 
@@ -71,20 +84,21 @@ function render() {
   renderLeaderboard();
   renderActivity();
 
-  if (!state.history.length) {
+  if (importSummary && !state.history.length) {
     importSummary.innerHTML = "No upload yet. Drop in today's export and the dashboard will score reacted messages automatically.";
   }
 }
 
 function renderHeroBadges() {
-  const totalPoints = Object.values(state.scores).reduce((sum, score) => sum + score, 0);
+  if (!heroBadges) {
+    return;
+  }
+
   const leader = getSortedRoster()[0];
-  const uploads = state.history.length;
+  const highestScore = leader ? state.scores[leader.name] || 0 : 0;
 
   heroBadges.innerHTML = [
-    createHeroBadge("Total points", totalPoints.toString()),
-    createHeroBadge("Daily uploads", uploads.toString()),
-    createHeroBadge("Current leader", leader ? leader.name.split(" ")[0] : "Ready")
+    createHeroBadge("Current leader", highestScore > 0 ? leader.name.split(" ")[0] : "Standby")
   ].join("");
 }
 
@@ -100,13 +114,11 @@ function renderLeaderboard() {
     const node = leaderboardItemTemplate.content.firstElementChild.cloneNode(true);
     const avatar = node.querySelector(".avatar");
     const personName = node.querySelector(".person-name");
-    const profileTitle = node.querySelector(".profile-title");
     const scorePill = node.querySelector(".score-pill");
 
     avatar.textContent = getInitials(person.name);
     avatar.style.background = `linear-gradient(135deg, ${person.colors[0]}, ${person.colors[1]})`;
     personName.textContent = person.name;
-    profileTitle.textContent = person.profile;
     scorePill.textContent = `${state.scores[person.name] || 0} pts`;
 
     fragment.appendChild(node);
@@ -424,6 +436,10 @@ function summarizeAwards(awards) {
 }
 
 function setSummary(message, isError = false) {
+  if (!importSummary) {
+    return;
+  }
+
   importSummary.textContent = message;
   importSummary.style.borderColor = isError ? "rgba(239, 71, 111, 0.35)" : "rgba(56, 182, 164, 0.25)";
   importSummary.style.background = isError ? "rgba(255, 240, 244, 0.92)" : "rgba(240, 255, 250, 0.92)";
@@ -454,4 +470,98 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+}
+
+function initVisualEffects() {
+  if (window.Parallax) {
+    new window.Parallax(document.getElementById("parallaxScene"), {
+      relativeInput: true,
+      hoverOnly: true,
+      frictionX: 0.08,
+      frictionY: 0.08
+    });
+  }
+
+  if (!window.THREE) {
+    return;
+  }
+
+  const container = document.getElementById("sceneCanvas");
+  const scene = new window.THREE.Scene();
+  const camera = new window.THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new window.THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  container.appendChild(renderer.domElement);
+
+  const geometry = new window.THREE.TorusKnotGeometry(8, 2.2, 180, 32);
+  const material = new window.THREE.MeshPhysicalMaterial({
+    color: 0x6df7ff,
+    emissive: 0x123d75,
+    roughness: 0.24,
+    metalness: 0.78,
+    transparent: true,
+    opacity: 0.34
+  });
+  const knot = new window.THREE.Mesh(geometry, material);
+  knot.position.set(20, 10, -42);
+  scene.add(knot);
+
+  const ring = new window.THREE.Mesh(
+    new window.THREE.TorusGeometry(18, 0.35, 24, 100),
+    new window.THREE.MeshBasicMaterial({ color: 0x8b5cf6, transparent: true, opacity: 0.32 })
+  );
+  ring.position.set(-26, -10, -60);
+  ring.rotation.x = 1.2;
+  scene.add(ring);
+
+  const particles = new window.THREE.BufferGeometry();
+  const particleCount = 180;
+  const positions = new Float32Array(particleCount * 3);
+
+  for (let index = 0; index < particleCount; index += 1) {
+    positions[index * 3] = (Math.random() - 0.5) * 140;
+    positions[index * 3 + 1] = (Math.random() - 0.5) * 90;
+    positions[index * 3 + 2] = (Math.random() - 0.5) * 110;
+  }
+
+  particles.setAttribute("position", new window.THREE.BufferAttribute(positions, 3));
+  const particleMaterial = new window.THREE.PointsMaterial({
+    color: 0x6df7ff,
+    size: 0.9,
+    transparent: true,
+    opacity: 0.55
+  });
+  const particleField = new window.THREE.Points(particles, particleMaterial);
+  scene.add(particleField);
+
+  scene.add(new window.THREE.AmbientLight(0x9cdcff, 0.55));
+
+  const pointLight = new window.THREE.PointLight(0x26ffd4, 22, 220);
+  pointLight.position.set(12, 18, 28);
+  scene.add(pointLight);
+
+  const fillLight = new window.THREE.PointLight(0x8b5cf6, 16, 180);
+  fillLight.position.set(-22, -10, 20);
+  scene.add(fillLight);
+
+  camera.position.z = 54;
+
+  const animate = () => {
+    knot.rotation.x += 0.0022;
+    knot.rotation.y += 0.0034;
+    ring.rotation.z += 0.0025;
+    particleField.rotation.y += 0.0009;
+    renderer.render(scene, camera);
+    window.requestAnimationFrame(animate);
+  };
+
+  animate();
+
+  window.addEventListener("resize", () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
 }
