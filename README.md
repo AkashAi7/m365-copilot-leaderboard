@@ -1,27 +1,33 @@
 # Frontier Agents Leaderboard
 
-A cybernetic GitHub Pages dashboard for tracking daily reaction wins across a fixed roster.
+A cybernetic GitHub Pages dashboard for tracking weekly reaction wins across a fixed roster.
 
 ## What it does
 
 - Seeds the leaderboard with the requested people and custom profile titles.
-- Accepts a daily CSV or JSON upload, or pasted raw rows.
+- Accepts a CSV or JSON upload, or pasted raw rows.
 - Awards `+5` points for every uploaded row that contains:
   - one known person name
   - at least one reaction
-- Stores scores and import history in browser local storage.
+- Publishes scores and import history from `data/leaderboard-state.json` for the public board.
+- Keeps local admin imports in browser local storage for manual weekly updates and corrections.
 - Lets you undo the last import, reset everything, or export the current leaderboard.
 - Keeps the published dashboard presentation-only.
 
 ## Public board
 
-- The public page shows the leaderboard and daily board rules only.
-- The displayed rule is `+5` points per valid daily completion.
-- The displayed update time is `10:00 AM` every day.
+- The public page shows the leaderboard and weekly board rules only.
+- The displayed rule is `+5` points per valid uploaded completion.
+- The new dashboard ratings are updated every week on Monday.
 
 ## Local admin use
 
-Use the local-only `admin.local.html` file for uploads and score updates. It is not intended to be part of the published dashboard.
+Use the local-only `admin.local.html` file for manual uploads and score updates. It is not intended to be part of the published dashboard.
+
+Update cadence:
+
+- Upload names and reactions manually.
+- Publish the new dashboard ratings every week on Monday.
 
 ## Expected upload shape
 

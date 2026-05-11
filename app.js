@@ -1,4 +1,5 @@
 const STORAGE_KEY = "frontier-agents-leaderboard-v3";
+const PERSISTED_STATE_PATH = "./data/leaderboard-state.json";
 
 const roster = [
   { name: "Amrita Srivastava", profile: "Momentum Maven", colors: ["#ff7a18", "#ef476f"] },
@@ -19,6 +20,8 @@ const roster = [
 
 const nameLookup = new Map(roster.map((person) => [normalizeName(person.name), person.name]));
 
+const emptyState = createEmptyState();
+const isAdminSurface = Boolean(document.getElementById("processButton"));
 const state = loadState();
 
 const heroBadges = document.getElementById("heroBadges");
@@ -52,30 +55,70 @@ if (undoImportButton) {
 initVisualEffects();
 
 render();
+void hydrateState();
+
+function createEmptyState() {
+  return {
+    scores: Object.fromEntries(roster.map((person) => [person.name, 0])),
+    history: [],
+    metadata: {
+      lastSyncedAt: null,
+      lastSource: "seed"
+    }
+  };
+}
 
 function loadState() {
-  const emptyState = {
-    scores: Object.fromEntries(roster.map((person) => [person.name, 0])),
-    history: []
-  };
+  if (!isAdminSurface) {
+    return createEmptyState();
+  }
 
   try {
     const saved = window.localStorage.getItem(STORAGE_KEY);
     if (!saved) {
-      return emptyState;
+      return createEmptyState();
     }
 
     const parsed = JSON.parse(saved);
     return {
       scores: { ...emptyState.scores, ...(parsed.scores || {}) },
-      history: Array.isArray(parsed.history) ? parsed.history : []
+      history: Array.isArray(parsed.history) ? parsed.history : [],
+      metadata: { ...emptyState.metadata, ...(parsed.metadata || {}) }
     };
   } catch {
-    return emptyState;
+    return createEmptyState();
+  }
+}
+
+async function hydrateState() {
+  try {
+    const response = await fetch(PERSISTED_STATE_PATH, { cache: "no-store" });
+    if (!response.ok) {
+      return;
+    }
+
+    const persistedState = await response.json();
+    state.scores = { ...emptyState.scores, ...(persistedState.scores || {}) };
+    state.history = Array.isArray(persistedState.history) ? persistedState.history : [];
+    state.metadata = { ...emptyState.metadata, ...(persistedState.metadata || {}) };
+
+    if (isAdminSurface) {
+      saveState();
+    }
+
+    render();
+  } catch {
+    if (!isAdminSurface) {
+      setSummary("Published leaderboard data is not available yet.", true);
+    }
   }
 }
 
 function saveState() {
+  if (!isAdminSurface) {
+    return;
+  }
+
   window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 }
 
@@ -85,7 +128,7 @@ function render() {
   renderActivity();
 
   if (importSummary && !state.history.length) {
-    importSummary.innerHTML = "No upload yet. Drop in today's export and the dashboard will score reacted messages automatically.";
+    importSummary.innerHTML = "No upload yet. Add this week's names manually and publish the refreshed ratings on Monday.";
   }
 }
 
