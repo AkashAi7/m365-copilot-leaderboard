@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M365 Copilot Reactions Leaderboard</title>
+    <meta
+      name="description"
+      content="A playful daily leaderboard for M365 Copilot reactions and message wins."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero-card">
+        <div>
+          <p class="eyebrow">Daily reaction race</p>
+          <h1>M365 Copilot Leaderboard</h1>
+          <p class="hero-copy">
+            Upload a daily reaction export, reward every reacted message with +5 points,
+            and keep the energy visible.
+          </p>
+        </div>
+        <div class="hero-badges" id="heroBadges"></div>
+      </header>
+
+      <main class="dashboard-grid">
+        <section class="panel upload-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">User-driven upload</p>
+              <h2>Daily scoring</h2>
+            </div>
+            <button id="undoImportButton" class="ghost-button" type="button">Undo last import</button>
+          </div>
+
+          <label class="input-label" for="importFile">Upload CSV or JSON</label>
+          <input id="importFile" class="file-input" type="file" accept=".csv,.json,application/json,text/csv" />
+
+          <label class="input-label" for="pasteArea">Or paste rows directly</label>
+          <textarea
+            id="pasteArea"
+            class="paste-area"
+            rows="8"
+            placeholder='Example CSV: name,reactions&#10;Akash Dwivedi,3&#10;Sapna Giddegowda,1'
+          ></textarea>
+
+          <div class="button-row">
+            <button id="processButton" class="primary-button" type="button">Process daily upload</button>
+            <button id="exportButton" class="secondary-button" type="button">Export leaderboard</button>
+            <button id="resetButton" class="ghost-button" type="button">Reset scores</button>
+          </div>
+
+          <div class="hint-card">
+            <h3>How scoring works</h3>
+            <p>
+              Each uploaded row that contains a known person and at least one reaction
+              adds <strong>+5 points</strong> to that person.
+            </p>
+            <p>
+              Supported name columns: <code>name</code>, <code>author</code>, <code>user</code>,
+              <code>sender</code>. Supported reaction columns: <code>reactions</code>,
+              <code>reactionCount</code>, <code>likes</code>, <code>emojiCount</code>.
+            </p>
+          </div>
+
+          <div id="importSummary" class="summary-card" aria-live="polite"></div>
+        </section>
+
+        <section class="panel leaderboard-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Live standings</p>
+              <h2>Leaderboard</h2>
+            </div>
+          </div>
+          <div id="leaderboard" class="leaderboard"></div>
+        </section>
+
+        <section class="panel activity-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Recent imports</p>
+              <h2>Activity feed</h2>
+            </div>
+          </div>
+          <div id="activityFeed" class="activity-feed"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="leaderboardItemTemplate">
+      <article class="leaderboard-item">
+        <div class="avatar"></div>
+        <div class="person-meta">
+          <div class="name-row">
+            <h3 class="person-name"></h3>
+            <span class="score-pill"></span>
+          </div>
+          <p class="profile-title"></p>
+        </div>
+      </article>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+  </html>
