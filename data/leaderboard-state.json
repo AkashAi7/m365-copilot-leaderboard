@@ -2,22 +2,59 @@
   "scores": {
     "Amrita Srivastava": 0,
     "Ajay Barun": 0,
-    "Ambikesh Mishra": 0,
-    "Akash Dwivedi": 0,
+    "Ambikesh Mishra": 5,
+    "Akash Dwivedi": 5,
     "Antariksh Shahwal": 0,
-    "Deepika Sharma": 0,
+    "Deepika Sharma": 5,
     "Karanmeet Singh": 0,
     "Mallikarjunaswamy Mahadevappa": 0,
-    "Murugesan U": 0,
-    "Namrata Chaurasia": 0,
+    "Murugesan U": 5,
+    "Namrata Chaurasia": 5,
     "Perinbaraj Thangavel": 0,
     "Rajat Srivastava": 0,
-    "Sankha Chakraborty": 0,
-    "Sapna Giddegowda": 0
+    "Sankha Chakraborty": 5,
+    "Sapna Giddegowda": 5
   },
-  "history": [],
+  "history": [
+    {
+      "source": "Manual update from reaction screenshot",
+      "importedAt": "2026-05-12T00:00:00.000Z",
+      "rowsAwarded": 7,
+      "pointsAwarded": 35,
+      "awards": [
+        {
+          "name": "Ambikesh Mishra",
+          "points": 5
+        },
+        {
+          "name": "Sapna Giddegowda",
+          "points": 5
+        },
+        {
+          "name": "Murugesan U",
+          "points": 5
+        },
+        {
+          "name": "Deepika Sharma",
+          "points": 5
+        },
+        {
+          "name": "Sankha Chakraborty",
+          "points": 5
+        },
+        {
+          "name": "Namrata Chaurasia",
+          "points": 5
+        },
+        {
+          "name": "Akash Dwivedi",
+          "points": 5
+        }
+      ]
+    }
+  ],
   "metadata": {
-    "lastSyncedAt": null,
-    "lastSource": "seed"
+    "lastSyncedAt": "2026-05-12T00:00:00.000Z",
+    "lastSource": "Manual update from reaction screenshot"
   }
 }
