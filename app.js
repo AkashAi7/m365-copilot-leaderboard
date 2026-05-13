@@ -137,12 +137,7 @@ function renderHeroBadges() {
     return;
   }
 
-  const leader = getSortedRoster()[0];
-  const highestScore = leader ? state.scores[leader.name] || 0 : 0;
-
-  heroBadges.innerHTML = [
-    createHeroBadge("Current leader", highestScore > 0 ? leader.name.split(" ")[0] : "Standby")
-  ].join("");
+  heroBadges.replaceChildren();
 }
 
 function createHeroBadge(label, value) {
