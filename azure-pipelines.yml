@@ -1,0 +1,39 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pr:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  artifactName: leaderboard-site
+
+steps:
+  - checkout: self
+
+  - task: CopyFiles@2
+    displayName: Stage static site files
+    inputs:
+      SourceFolder: $(Build.SourcesDirectory)
+      Contents: |
+        index.html
+        admin.local.html
+        app.js
+        styles.css
+        README.md
+        data/**
+        scripts/**
+      TargetFolder: $(Build.ArtifactStagingDirectory)
+
+  - task: PublishPipelineArtifact@1
+    displayName: Publish site artifact
+    inputs:
+      targetPath: $(Build.ArtifactStagingDirectory)
+      artifact: $(artifactName)
+      publishLocation: pipeline

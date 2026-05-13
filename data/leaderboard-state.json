@@ -1,19 +1,19 @@
 {
   "scores": {
-    "Amrita Srivastava": 0,
+    "Amrita Srivastava": 5,
     "Ajay Barun": 0,
-    "Ambikesh Mishra": 5,
-    "Akash Dwivedi": 5,
-    "Antariksh Shahwal": 0,
-    "Deepika Sharma": 5,
+    "Ambikesh Mishra": 10,
+    "Akash Dwivedi": 10,
+    "Antariksh Shahwal": 5,
+    "Deepika Sharma": 10,
     "Karanmeet Singh": 0,
-    "Mallikarjunaswamy Mahadevappa": 0,
-    "Murugesan U": 5,
-    "Namrata Chaurasia": 5,
+    "Mallikarjunaswamy Mahadevappa": 5,
+    "Murugesan U": 10,
+    "Namrata Chaurasia": 10,
     "Perinbaraj Thangavel": 0,
-    "Rajat Srivastava": 0,
-    "Sankha Chakraborty": 5,
-    "Sapna Giddegowda": 5
+    "Rajat Srivastava": 5,
+    "Sankha Chakraborty": 10,
+    "Sapna Giddegowda": 10
   },
   "history": [
     {
@@ -51,10 +51,62 @@
           "points": 5
         }
       ]
+    },
+    {
+      "source": "Manual update from reaction screenshots",
+      "importedAt": "2026-05-13T00:00:00.000Z",
+      "rowsAwarded": 11,
+      "pointsAwarded": 55,
+      "awards": [
+        {
+          "name": "Sankha Chakraborty",
+          "points": 5
+        },
+        {
+          "name": "Murugesan U",
+          "points": 5
+        },
+        {
+          "name": "Namrata Chaurasia",
+          "points": 5
+        },
+        {
+          "name": "Sapna Giddegowda",
+          "points": 5
+        },
+        {
+          "name": "Antariksh Shahwal",
+          "points": 5
+        },
+        {
+          "name": "Mallikarjunaswamy Mahadevappa",
+          "points": 5
+        },
+        {
+          "name": "Amrita Srivastava",
+          "points": 5
+        },
+        {
+          "name": "Ambikesh Mishra",
+          "points": 5
+        },
+        {
+          "name": "Deepika Sharma",
+          "points": 5
+        },
+        {
+          "name": "Rajat Srivastava",
+          "points": 5
+        },
+        {
+          "name": "Akash Dwivedi",
+          "points": 5
+        }
+      ]
     }
   ],
   "metadata": {
-    "lastSyncedAt": "2026-05-12T00:00:00.000Z",
-    "lastSource": "Manual update from reaction screenshot"
+    "lastSyncedAt": "2026-05-13T00:00:00.000Z",
+    "lastSource": "Manual update from reaction screenshots"
   }
 }
