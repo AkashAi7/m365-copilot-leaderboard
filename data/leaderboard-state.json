@@ -1,15 +1,15 @@
 {
   "scores": {
     "Amrita Srivastava": 10,
-    "Ajay Barun": 0,
-    "Ambikesh Mishra": 25,
+    "Ajay Barun": 10,
+    "Ambikesh Mishra": 30,
     "Akash Dwivedi": 25,
-    "Antariksh Shahwal": 15,
+    "Antariksh Shahwal": 25,
     "Deepika Sharma": 20,
     "Karanmeet Singh": 10,
     "Mallikarjunaswamy Mahadevappa": 15,
-    "Murugesan U": 25,
-    "Namrata Chaurasia": 25,
+    "Murugesan U": 35,
+    "Namrata Chaurasia": 30,
     "Perinbaraj Thangavel": 0,
     "Rajat Srivastava": 20,
     "Sankha Chakraborty": 25,
@@ -255,10 +255,58 @@
           "points": 5
         }
       ]
+    },
+    {
+      "source": "Manual update from reaction screenshot",
+      "importedAt": "2026-05-16T18:00:00.000Z",
+      "rowsAwarded": 5,
+      "pointsAwarded": 25,
+      "awards": [
+        {
+          "name": "Namrata Chaurasia",
+          "points": 5
+        },
+        {
+          "name": "Ambikesh Mishra",
+          "points": 5
+        },
+        {
+          "name": "Antariksh Shahwal",
+          "points": 5
+        },
+        {
+          "name": "Murugesan U",
+          "points": 5
+        },
+        {
+          "name": "Ajay Barun",
+          "points": 5
+        }
+      ]
+    },
+    {
+      "source": "Manual update from reaction screenshot",
+      "importedAt": "2026-05-17T18:00:00.000Z",
+      "rowsAwarded": 3,
+      "pointsAwarded": 15,
+      "awards": [
+        {
+          "name": "Murugesan U",
+          "points": 5
+        },
+        {
+          "name": "Antariksh Shahwal",
+          "points": 5
+        },
+        {
+          "name": "Ajay Barun",
+          "points": 5
+        }
+      ]
     }
   ],
   "metadata": {
-    "lastSyncedAt": "2026-05-15T18:00:00.000Z",
-    "lastSource": "Manual update from reaction screenshots"
+    "lastSyncedAt": "2026-05-17T18:00:00.000Z",
+    "lastSource": "Manual update from reaction screenshot"
   }
 }
