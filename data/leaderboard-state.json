@@ -2,18 +2,18 @@
   "scores": {
     "Amrita Srivastava": 10,
     "Ajay Barun": 10,
-    "Ambikesh Mishra": 30,
-    "Akash Dwivedi": 25,
-    "Antariksh Shahwal": 25,
-    "Deepika Sharma": 20,
-    "Karanmeet Singh": 10,
-    "Mallikarjunaswamy Mahadevappa": 15,
-    "Murugesan U": 35,
-    "Namrata Chaurasia": 30,
+    "Ambikesh Mishra": 40,
+    "Akash Dwivedi": 35,
+    "Antariksh Shahwal": 35,
+    "Deepika Sharma": 30,
+    "Karanmeet Singh": 20,
+    "Mallikarjunaswamy Mahadevappa": 25,
+    "Murugesan U": 45,
+    "Namrata Chaurasia": 40,
     "Perinbaraj Thangavel": 0,
-    "Rajat Srivastava": 20,
-    "Sankha Chakraborty": 25,
-    "Sapna Giddegowda": 25
+    "Rajat Srivastava": 30,
+    "Sankha Chakraborty": 35,
+    "Sapna Giddegowda": 35
   },
   "history": [
     {
@@ -303,10 +303,114 @@
           "points": 5
         }
       ]
+    },
+    {
+      "source": "Manual update from reaction screenshots",
+      "importedAt": "2026-05-18T18:00:00.000Z",
+      "rowsAwarded": 11,
+      "pointsAwarded": 55,
+      "awards": [
+        {
+          "name": "Ambikesh Mishra",
+          "points": 5
+        },
+        {
+          "name": "Rajat Srivastava",
+          "points": 5
+        },
+        {
+          "name": "Sankha Chakraborty",
+          "points": 5
+        },
+        {
+          "name": "Murugesan U",
+          "points": 5
+        },
+        {
+          "name": "Antariksh Shahwal",
+          "points": 5
+        },
+        {
+          "name": "Deepika Sharma",
+          "points": 5
+        },
+        {
+          "name": "Sapna Giddegowda",
+          "points": 5
+        },
+        {
+          "name": "Karanmeet Singh",
+          "points": 5
+        },
+        {
+          "name": "Mallikarjunaswamy Mahadevappa",
+          "points": 5
+        },
+        {
+          "name": "Namrata Chaurasia",
+          "points": 5
+        },
+        {
+          "name": "Akash Dwivedi",
+          "points": 5
+        }
+      ]
+    },
+    {
+      "source": "Manual update from reaction screenshots",
+      "importedAt": "2026-05-19T18:00:00.000Z",
+      "rowsAwarded": 11,
+      "pointsAwarded": 55,
+      "awards": [
+        {
+          "name": "Rajat Srivastava",
+          "points": 5
+        },
+        {
+          "name": "Antariksh Shahwal",
+          "points": 5
+        },
+        {
+          "name": "Ambikesh Mishra",
+          "points": 5
+        },
+        {
+          "name": "Sapna Giddegowda",
+          "points": 5
+        },
+        {
+          "name": "Karanmeet Singh",
+          "points": 5
+        },
+        {
+          "name": "Sankha Chakraborty",
+          "points": 5
+        },
+        {
+          "name": "Deepika Sharma",
+          "points": 5
+        },
+        {
+          "name": "Mallikarjunaswamy Mahadevappa",
+          "points": 5
+        },
+        {
+          "name": "Murugesan U",
+          "points": 5
+        },
+        {
+          "name": "Namrata Chaurasia",
+          "points": 5
+        },
+        {
+          "name": "Akash Dwivedi",
+          "points": 5
+        }
+      ]
     }
   ],
   "metadata": {
-    "lastSyncedAt": "2026-05-17T18:00:00.000Z",
-    "lastSource": "Manual update from reaction screenshot"
+    "lastSyncedAt": "2026-05-19T18:00:00.000Z",
+    "lastSource": "Manual update from reaction screenshots"
   }
 }
