@@ -4,15 +4,15 @@
     "Ajay Barun": 10,
     "Ambikesh Mishra": 55,
     "Akash Dwivedi": 50,
-    "Antariksh Shahwal": 50,
-    "Deepika Sharma": 45,
+    "Antariksh Shahwal": 55,
+    "Deepika Sharma": 50,
     "Karanmeet Singh": 20,
     "Mallikarjunaswamy Mahadevappa": 35,
-    "Murugesan U": 60,
+    "Murugesan U": 65,
     "Namrata Chaurasia": 55,
     "Perinbaraj Thangavel": 10,
     "Rajat Srivastava": 45,
-    "Sankha Chakraborty": 50,
+    "Sankha Chakraborty": 55,
     "Sapna Giddegowda": 45
   },
   "history": [
@@ -551,10 +551,34 @@
           "points": 5
         }
       ]
+    },
+    {
+      "source": "Manual update from reaction screenshots",
+      "importedAt": "2026-05-25T04:31:50.536Z",
+      "rowsAwarded": 4,
+      "pointsAwarded": 20,
+      "awards": [
+        {
+          "name": "Murugesan U",
+          "points": 5
+        },
+        {
+          "name": "Deepika Sharma",
+          "points": 5
+        },
+        {
+          "name": "Antariksh Shahwal",
+          "points": 5
+        },
+        {
+          "name": "Sankha Chakraborty",
+          "points": 5
+        }
+      ]
     }
   ],
   "metadata": {
-    "lastSyncedAt": "2026-05-25T04:31:09.956Z",
+    "lastSyncedAt": "2026-05-25T04:31:50.536Z",
     "lastSource": "Manual update from reaction screenshots"
   }
 }
