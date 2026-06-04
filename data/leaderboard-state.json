@@ -2,18 +2,18 @@
   "scores": {
     "Amrita Srivastava": 10,
     "Ajay Barun": 10,
-    "Ambikesh Mishra": 55,
-    "Akash Dwivedi": 50,
-    "Antariksh Shahwal": 60,
-    "Deepika Sharma": 55,
+    "Ambikesh Mishra": 90,
+    "Akash Dwivedi": 85,
+    "Antariksh Shahwal": 105,
+    "Deepika Sharma": 85,
     "Karanmeet Singh": 25,
-    "Mallikarjunaswamy Mahadevappa": 35,
-    "Murugesan U": 70,
-    "Namrata Chaurasia": 60,
-    "Perinbaraj Thangavel": 15,
-    "Rajat Srivastava": 45,
-    "Sankha Chakraborty": 60,
-    "Sapna Giddegowda": 45
+    "Mallikarjunaswamy Mahadevappa": 55,
+    "Murugesan U": 115,
+    "Namrata Chaurasia": 105,
+    "Perinbaraj Thangavel": 30,
+    "Rajat Srivastava": 85,
+    "Sankha Chakraborty": 95,
+    "Sapna Giddegowda": 75
   },
   "history": [
     {
@@ -611,10 +611,82 @@
           "points": 5
         }
       ]
+    },
+    {
+      "source": "Manual update from reaction screenshot",
+      "importedAt": "2026-06-04T09:12:42.888Z",
+      "rowsAwarded": 3,
+      "pointsAwarded": 15,
+      "awards": [
+        {
+          "name": "Ambikesh Mishra",
+          "points": 5
+        },
+        {
+          "name": "Mallikarjunaswamy Mahadevappa",
+          "points": 5
+        },
+        {
+          "name": "Akash Dwivedi",
+          "points": 5
+        }
+      ]
+    },
+    {
+      "source": "Manual update from reaction screenshots",
+      "importedAt": "2026-06-04T09:20:26.496Z",
+      "rowsAwarded": 72,
+      "pointsAwarded": 360,
+      "awards": [
+        {
+          "name": "Ambikesh Mishra",
+          "points": 30
+        },
+        {
+          "name": "Akash Dwivedi",
+          "points": 30
+        },
+        {
+          "name": "Antariksh Shahwal",
+          "points": 45
+        },
+        {
+          "name": "Deepika Sharma",
+          "points": 30
+        },
+        {
+          "name": "Mallikarjunaswamy Mahadevappa",
+          "points": 15
+        },
+        {
+          "name": "Murugesan U",
+          "points": 45
+        },
+        {
+          "name": "Namrata Chaurasia",
+          "points": 45
+        },
+        {
+          "name": "Perinbaraj Thangavel",
+          "points": 15
+        },
+        {
+          "name": "Rajat Srivastava",
+          "points": 40
+        },
+        {
+          "name": "Sankha Chakraborty",
+          "points": 35
+        },
+        {
+          "name": "Sapna Giddegowda",
+          "points": 30
+        }
+      ]
     }
   ],
   "metadata": {
-    "lastSyncedAt": "2026-05-25T04:32:50.793Z",
+    "lastSyncedAt": "2026-06-04T09:20:26.496Z",
     "lastSource": "Manual update from reaction screenshots"
   }
 }
